@@ -1,7 +1,11 @@
-FROM n8nio/n8n
+# Use official N8N image
+FROM n8nio/n8n:latest
 
-# Set environment variables for production
-ENV N8N_BASIC_AUTH_ACTIVE=true
-ENV N8N_BASIC_AUTH_USER=admin
-ENV N8N_BASIC_AUTH_PASSWORD=adminpassword
-ENV WEBHOOK_URL=https://yourapp.railway.app/
+# Set the working directory
+WORKDIR /data
+
+# Expose the default port
+EXPOSE 5678
+
+# Command to run N8N
+CMD ["n8n"]
