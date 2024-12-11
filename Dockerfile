@@ -1,14 +1,14 @@
-# Use Node.js as the base image
-FROM node:16
+# Use Node.js 18 (compatible with N8N)
+FROM node:18.17.1
 
 # Install N8N globally
 RUN npm install -g n8n
 
-# Set the working directory
+# Set the working directory inside the container
 WORKDIR /data
 
-# Expose N8N's default port
+# Expose the port that N8N runs on
 EXPOSE 5678
 
-# Command to start N8N
+# Command to run N8N
 CMD ["n8n"]
