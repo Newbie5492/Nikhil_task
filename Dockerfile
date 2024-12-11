@@ -1,11 +1,14 @@
-# Use the official N8N image from Docker Hub
-FROM n8nio/n8n:latest
+# Use Node.js as the base image
+FROM node:16
 
-# Set the working directory inside the container
+# Install N8N globally
+RUN npm install -g n8n
+
+# Set the working directory
 WORKDIR /data
 
-# Expose the default N8N port
+# Expose N8N's default port
 EXPOSE 5678
 
-# Start N8N when the container starts
+# Command to start N8N
 CMD ["n8n"]
